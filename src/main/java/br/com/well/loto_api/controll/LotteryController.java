@@ -2,61 +2,72 @@ package br.com.well.loto_api.controll;
 
 import br.com.well.loto_api.service.LotteryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/loteria")
+@Controller
 public class LotteryController {
-
-
 
     @Autowired
     private LotteryService lotteryService;
 
-    @GetMapping("/megasena")
-    public String getMegaSena() {
-        return lotteryService.getLotteryData("megasena");
+    @GetMapping("/")
+    public String home() {
+        return "home"; // nome da página HTML
     }
 
-    @GetMapping("/diadesorte")
-    public String getDiaDeSorte() {
-        return lotteryService.getLotteryData("diadesorte");
+    @GetMapping("/loteria/megasena")
+    public String getMegaSena(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("megasena"));
+        return "result"; // nome da página HTML para exibir o resultado
     }
 
-    @GetMapping("/duplasena")
-    public String getDuplaSena() {
-        return lotteryService.getLotteryData("duplasena");
+    @GetMapping("/loteria/diadesorte")
+    public String getDiaDeSorte(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("diadesorte"));
+        return "result";
     }
 
-    @GetMapping("/lotofacil")
-    public String getLotoFacil() {
-        return lotteryService.getLotteryData("lotofacil");
+    @GetMapping("/loteria/duplasena")
+    public String getDuplaSena(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("duplasena"));
+        return "result";
     }
 
-    @GetMapping("/lotomania")
-    public String getLotoMania() {
-        return lotteryService.getLotteryData("lotomania");
+    @GetMapping("/loteria/lotofacil")
+    public String getLotoFacil(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("lotofacil"));
+        return "result";
     }
 
-    @GetMapping("/quina")
-    public String getQuina() {
-        return lotteryService.getLotteryData("quina");
+    @GetMapping("/loteria/lotomania")
+    public String getLotoMania(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("lotomania"));
+        return "result";
     }
 
-    @GetMapping("/supersete")
-    public String getSuperSete() {
-        return lotteryService.getLotteryData("supersete");
+    @GetMapping("/loteria/quina")
+    public String getQuina(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("quina"));
+        return "result";
     }
 
-    @GetMapping("/timemania")
-    public String getTimeMania() {
-        return lotteryService.getLotteryData("timemania");
+    @GetMapping("/loteria/supersete")
+    public String getSuperSete(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("supersete"));
+        return "result";
     }
 
-    @GetMapping("/maismilionaria")
-    public String getMaisMilionaria() {
-        return lotteryService.getLotteryData("maismilionaria");
+    @GetMapping("/loteria/timemania")
+    public String getTimeMania(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("timemania"));
+        return "result";
+    }
+
+    @GetMapping("/loteria/maismilionaria")
+    public String getMaisMilionaria(Model model) {
+        model.addAttribute("result", lotteryService.getLotteryData("maismilionaria"));
+        return "result";
     }
 }
