@@ -11,7 +11,7 @@
 	<groupId>br.com.well</groupId>
 	<artifactId>loto-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>loto-api</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
