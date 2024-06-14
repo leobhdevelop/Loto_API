@@ -17,7 +17,7 @@ public class LotteryController {
         return lotteryService.getLotteryData("megasena");
     }
 
-    @GetMapping("/loteria/diadesorte" )
+    @GetMapping("/loteria/diadesorte")
     public String getDiaDeSorte() {
         return lotteryService.getLotteryData("diadesorte");
     }
